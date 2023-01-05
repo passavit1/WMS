@@ -1,0 +1,54 @@
+<%- include("header") %>
+
+    <script>
+        function searchProduct() {
+            var barcode = document.getElementById('barcode');
+            var product_id = document.getElementById('product_id');
+            var name = document.getElementById('name');
+            var body = JSON.stringify({
+                barcode: barcode.value
+            });
+            fetch('searchProduct', {
+                method: 'POST',
+                body: body,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        data = data[0];
+                        product_id.value = data.id;
+                        name.value = data.name;
+                    } else {
+                        alert('บาโค้ดไม่ถูกต้อง โปรดป้อนใหม่อีกรอบ');
+                        name.value = '';
+                    }
+                });
+        }
+    </script>
+
+    <div class="panel">
+        <div class="panel-header">
+            <i class="fa fa-arrow-up"></i> เบิกสินค้าออก
+        </div>
+        <div class="panel-body">
+            <form method="post">
+                <div>
+                    <label>รหัสสินค้า</label>
+                    <input id="barcode" onblur="searchProduct()" />
+                    <input id="name" disabled size="70" />
+                    <input type="hidden" name="product_id" id="product_id" />
+                </div>
+                <div>
+                    <label>จำนวน</label>
+                    <input name="qty" />
+                </div>
+                <button class="btn">
+                    <i class="fa fa-check"></i> Save
+                </button>
+            </form>
+        </div>
+    </div>
+    <%- include("footer") %>

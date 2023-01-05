@@ -1,0 +1,56 @@
+<%- include("header") %>
+    <div class="panel">
+        <div class="panel-header">
+            <i class="fa fa-bar-chart"></i> รายงานสต้อก
+        </div>
+        <div class="panel-body">
+            <form method="post">
+                <div style="display: inline-block">
+                    <label>จากวันที่</label>
+                    <input type="date" name="from" value="<%= from %>" />
+                </div>
+                <div style="display: inline-block">
+                    <label>ถึงวันที่</label>
+                    <input type="date" name="to" value="<%= to %>" />
+                </div>
+                <button type="submit" class="btn">
+                    <i class="fa fa-check"></i> แสดงข้อมูล
+                </button>
+            </form>
+
+            <div>&nbsp;</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="100px">barcode</th>
+                        <th>ชื่อสินค้า</th>
+                        <th width="120px">จำนวนรับเข้า</th>
+                        <th width="120px">จำนวนเบิกออก</th>
+                        <th width="100px">คงเหลือ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(item=> { %>
+                        <tr>
+                            <td>
+                                <%= item.barcode %>
+                            </td>
+                            <td>
+                                <%= item.name %>
+                            </td>
+                            <td style="text-align: right;">
+                                <%= item.total_import %>
+                            </td>
+                            <td style="text-align: right;">
+                                <%= item.total_out %>
+                            </td>
+                            <td style="text-align: right;">
+                                <%= item.total_import - item.total_out %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <%- include("footer") %>

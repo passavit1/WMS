@@ -1,0 +1,83 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Mali");
+
+body {
+  font: 14px "Mali";
+  margin: 50px;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.btn {
+  background: #0279a8;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+h1 {
+  padding-bottom: 20px;
+  color: #102a9c;
+}
+
+.panel {
+  border: 1px #0279a8 solid;
+  margin-top: 10px;
+}
+.panel-header {
+  background: #0279a8;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+}
+.panel-body {
+  padding: 15px;
+}
+form div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+label {
+  display: block;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+input {
+  padding: 5px;
+}
+button {
+  border: 0px;
+}
+
+table {
+  width: 100%;
+  margin-top: 15px;
+}
+table thead tr th {
+  background: #5c5a5a;
+  padding: 10px;
+  color: white;
+}
+table tbody tr td {
+  border-bottom: #ccc 1px solid;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+.btn-danger {
+  background: #d41515;
+}

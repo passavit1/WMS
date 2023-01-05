@@ -1,0 +1,54 @@
+<%- include("header") %>
+    <div class="panel">
+        <div class="panel-header">
+            <i class="fa fa-th"></i>
+            สินค้า
+        </div>
+        <div class="panel-body">
+            <form method="post">
+                <div>
+                    <label>Barcode</label>
+                    <input name="barcode" value="<%= data.barcode %>" />
+                </div>
+                <div>
+                    <label>ชื่อสินค้า</label>
+                    <input name="name" value="<%= data.name %>" />
+                </div>
+                <button type="submit" class="btn">
+                    <i class="fa fa-check"></i> Save
+                </button>
+            </form>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th width="100px">barcode</th>
+                <th>ชื่อสินค้า</th>
+                <th width="110px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(item=> { %>
+                <tr>
+                    <td>
+                        <%= item.barcode %>
+                    </td>
+                    <td>
+                        <%= item.name %>
+                    </td>
+                    <td style="text-align: center;">
+                        <a class="btn" href="/productEdit/<%= item.id %>">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class="btn btn-danger" href="productDelete/<%= item.id %>" onclick="return confirm('Delete ?')">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+
+
+    <%- include("footer") %>
